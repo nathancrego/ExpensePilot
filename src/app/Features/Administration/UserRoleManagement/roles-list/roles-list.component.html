@@ -1,0 +1,33 @@
+
+<div class="container mb-5 pb-3">
+    <h1 class="text-center mt-3">Role Management</h1>
+    <div class="d-flex justify-content-end mt-3">
+        <a class="btn btn-primary" [routerLink]="['/admin/roles/add']"><i class="bi bi-plus"></i> Add New Role</a>
+    </div>
+
+    <ng-container *ngIf="roles$ | async as roles">
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Role ID</th>
+                    <th>Role</th>
+                    <th>Last Changed</th>
+                    <th>Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let role of roles">
+                    <td>{{role.id}}</td>
+                    <td>{{role.role}}</td>
+                    <td>{{role.lastUpdated | date:'dd/MM/yyyy'}}</td>
+                    <td>
+                        <a class="btn btn-outline-secondary" [routerLink]="['/admin/roles',role.id]">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </ng-container>
+</div>

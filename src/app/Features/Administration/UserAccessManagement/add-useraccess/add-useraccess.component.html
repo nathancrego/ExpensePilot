@@ -1,0 +1,44 @@
+<div class="container">
+    <h1 class="mt-3">Add New User Access</h1>
+    <form (ngSubmit)="onFormSubmit(useraccessForm)" #useraccessForm="ngForm">
+        <div class="mt-2">
+            <div class="mt-3">
+                <label for="userID" class="form-label">User</label>
+                <select id="userID" class="form-control" [(ngModel)]="useraccesses.userID" name="userID" required>
+                    <option *ngFor="let logon of logons$ | async" [value]="logon.id">
+                        {{ logon.fName }} {{ logon.lName }} - {{logon.logon}}
+                    </option>
+                </select>
+                <div class="validation" *ngIf="useraccessForm.submitted && !useraccessForm.controls['userID']?.valid">
+                    User is required.
+                </div>
+            </div>
+            <div class="mt-3">
+                <label for="userRoleID" class="form-label">Role</label>
+                <select id="userRoleID" class="form-control" [(ngModel)]="useraccesses.userRoleID" name="userRoleID"
+                    required>
+                    <option *ngFor="let role of roles$ | async" [value]="role.id">
+                        {{ role.role }}
+                    </option>
+                </select>
+                <div class="validation"
+                    *ngIf="useraccessForm.submitted && !useraccessForm.controls['userRoleID']?.valid">
+                    Role is required.
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <label class="form-label" for="lastUpdated">Last Updated</label>
+                <input type="date" disabled id="lastUpdated" class="form-control" name="lastUpdated"
+                    value="{{useraccesses.lastUpdated}}" [ngModel]="useraccesses.lastUpdated| date:'yyyy-MM-dd'"
+                    (ngModelChange)="useraccesses.lastUpdated= $event">
+            </div>
+
+            <div class="d- flex mt-3">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-floppy"></i> Save</button>
+                <button type="button" class="btn btn-outline-secondary ms-3" (click)="onBack()"> <i
+                        class="bi bi-arrow-left"></i> Back To List</button>
+            </div>
+        </div>
+    </form>
+</div>

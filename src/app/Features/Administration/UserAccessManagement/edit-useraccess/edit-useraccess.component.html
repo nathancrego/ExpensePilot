@@ -1,0 +1,62 @@
+<div class="container">
+    <h1 class="mt-3">Edit User Access</h1>
+    <ng-container *ngIf="useraccess; else notFound">
+        <form #edituseraccessForm="ngForm" (ngSubmit)="onFormSubmit(edituseraccessForm)">
+            <div class="mt-2 pb-3">
+                <div class="mt-3">
+                    <label class="form-label" for="userAccessID">UserAccessID</label>
+                    <input type="text" disabled id="userAccessID" class="form-control" name="userAccessID" value="{{useraccess.userAccessID}}">
+                </div>
+                
+                <div class="mt-3">
+                    <label for="userID">User</label>
+                    <select id="userID" class="form-control" [(ngModel)]="selectedUserId" name="userID"
+                        required>
+                        <option *ngFor="let logon of logons$ | async" [value]="logon.id">{{ logon.fName }} {{
+                            logon.lName }} - {{logon.logon}}</option>
+                    </select>
+                    <div class="validation"
+                        *ngIf="edituseraccessForm.submitted && !edituseraccessForm.controls['userID']?.valid">
+                        User is required.
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <label for="userRoleID">Role</label>
+                    <select id="userRoleID" class="form-control" [(ngModel)]="selectedUserRoleId"
+                        name="userRoleID" required>
+                        <option *ngFor="let role of roles$ | async" [value]="role.id">{{
+                            role.role }}</option>
+                    </select>
+                    <div class="validation"
+                        *ngIf="edituseraccessForm.submitted && !edituseraccessForm.controls['userRoleID']?.valid">
+                        Role is required.
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label" for="lastUpdated">Last Updated</label>
+                    <input type="date" disabled id="lastUpdated" class="form-control" name="lastUpdated"
+                        value="{{useraccess.lastUpdated}}" [ngModel]="useraccess.lastUpdated | date:'yyyy-MM-dd'"
+                        (ngModelChange)="useraccess.lastUpdated = $event">
+                </div>
+
+                <div class="mt-3 d-flex">
+                    <button type="submit" class="btn btn-outline-success"> <i class="bi bi-pencil-fill"></i>
+                        Update</button>
+                    <button type="button" class="btn btn-outline-danger ms-3" (click)="onDelete()"> <i
+                            class="bi bi-trash-fill"></i> Delete</button>
+                    <button type="button" class="btn btn-outline-secondary ms-3" (click)="onBack()"> <i
+                            class="bi bi-arrow-left"></i> Back To List</button>
+                </div>
+            </div>
+        </form>
+    </ng-container>
+
+    <!--template using temp variable for notFound-->
+    <ng-template #notFound>
+        <div class="alert alert-warning" role="alert">
+            User not found!
+        </div>
+    </ng-template>
+</div>

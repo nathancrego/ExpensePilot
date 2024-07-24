@@ -1,0 +1,41 @@
+
+<div class="container mb-5 pb-3">
+    <h1 class="text-center mt-3">User Management</h1>
+    <div class="d-flex justify-content-end mt-3">
+        <a class="btn btn-primary" [routerLink]="['/admin/users/add']"><i class="bi bi-plus"></i> Add New User</a>
+    </div>
+
+    <ng-container *ngIf="users$ | async as users">
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>UserID</th>
+                    <th>Logon</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Manager</th>
+                    <th>Department</th>
+                    <th>LastUpdated</th>
+                    <th>Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.logon}}</td>
+                    <td>{{user.fName + ' ' + user.lName}} </td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.managerName}}</td>
+                    <td>{{user.departmentName}}</td>
+                    <td>{{user.lastUpdated | date:'dd/MM/yyyy'}}</td>
+                    <td>
+                        <a class="btn btn-outline-secondary" [routerLink]="['/admin/users',user.id]">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </ng-container>
+</div>

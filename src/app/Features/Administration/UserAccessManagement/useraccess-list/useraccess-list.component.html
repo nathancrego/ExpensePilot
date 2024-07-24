@@ -1,0 +1,35 @@
+
+<div class="container mb-5 pb-3">
+    <h1 class="text-center mt-3">User Access Management</h1>
+    <div class="d-flex justify-content-end mt-3">
+        <a class="btn btn-primary" [routerLink]="['/admin/useraccess/add']"><i class="bi bi-plus"></i> Add New User Access</a>
+    </div>
+
+    <ng-container *ngIf="userAccesses$ | async as userAccesses">
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>UserAccessID</th>
+                    <th>Logon</th>
+                    <th>Role</th>
+                    <th>LastUpdated</th>
+                    <th>Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let userAccess of userAccesses">
+                    <td>{{userAccess.userAccessID}}</td>
+                    <td>{{userAccess.logon}}</td>
+                    <td>{{userAccess.role}}</td>
+                    <td>{{userAccess.lastUpdated | date:'dd/MM/yyyy'}}</td>
+                    <td>
+                        <a class="btn btn-outline-secondary" [routerLink]="['/admin/useraccess',userAccess.userAccessID]">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </ng-container>
+</div>
