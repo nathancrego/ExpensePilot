@@ -24,6 +24,13 @@ import { LoginComponent } from './Features/Administration/Authentication/login/l
 import { RegisterComponent } from './Features/Administration/Authentication/register/register.component';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {CookieService} from 'ngx-cookie-service';
+import { AddExpenseComponent } from './Features/Expense/add-expense/add-expense.component';
+import { EditExpenseComponent } from './Features/Expense/edit-expense/edit-expense.component';
+import { ListExpenseComponent } from './Features/Expense/list-expense/list-expense.component';
+import { AddExpensestatusComponent } from './Features/Administration/ExpenseStatusManagement/add-expensestatus/add-expensestatus.component';
+import { EditExpensestatusComponent } from './Features/Administration/ExpenseStatusManagement/edit-expensestatus/edit-expensestatus.component';
+import { ExpensestatusListComponent } from './Features/Administration/ExpenseStatusManagement/expensestatus-list/expensestatus-list.component';
 
 @NgModule({
   declarations: [
@@ -45,17 +52,24 @@ import { FormsModule } from '@angular/forms';
     EditExpensecategoryComponent,
     ExpensecategoryListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddExpenseComponent,
+    EditExpenseComponent,
+    ListExpenseComponent,
+    AddExpensestatusComponent,
+    EditExpensestatusComponent,
+    ExpensestatusListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule    
   ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideHttpClient()
+    provideHttpClient(),
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

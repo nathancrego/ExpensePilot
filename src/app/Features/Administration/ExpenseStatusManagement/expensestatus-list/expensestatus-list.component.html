@@ -1,0 +1,33 @@
+
+<div class="container mb-5 pb-3">
+    <h1 class="text-center mt-3">Expense Status Management</h1>
+    <div class="d-flex justify-content-end mt-3">
+        <a class="btn btn-primary" [routerLink]="['/admin/expensestatus/add']"><i class="bi bi-plus"></i> Add New Expense Status</a>
+    </div>
+
+    <ng-container *ngIf="statuses$ | async as statuses">
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Expense StatusID</th>
+                    <th>Expense Status Name</th>
+                    <th>Last Changed</th>
+                    <th>Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let status of statuses">
+                    <td>{{status.statusID}}</td>
+                    <td>{{status.statusName}}</td>
+                    <td>{{status.lastUpdated| date:'dd/MM/yyyy'}}</td>
+                    <td>
+                        <a class="btn btn-outline-secondary" [routerLink]="['/admin/expensestatus',status.statusID]">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </ng-container>
+</div>

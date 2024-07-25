@@ -15,6 +15,12 @@ import { EditUseraccessComponent } from './Features/Administration/UserAccessMan
 import { ExpensecategoryListComponent } from './Features/Administration/ExpenseCategoryManagement/expensecategory-list/expensecategory-list.component';
 import { AddExpensecategoryComponent } from './Features/Administration/ExpenseCategoryManagement/add-expensecategory/add-expensecategory.component';
 import { EditExpensecategoryComponent } from './Features/Administration/ExpenseCategoryManagement/edit-expensecategory/edit-expensecategory.component';
+import { AddExpenseComponent } from './Features/Expense/add-expense/add-expense.component';
+import { ListExpenseComponent } from './Features/Expense/list-expense/list-expense.component';
+import { EditExpenseComponent } from './Features/Expense/edit-expense/edit-expense.component';
+import { ExpensestatusListComponent } from './Features/Administration/ExpenseStatusManagement/expensestatus-list/expensestatus-list.component';
+import { AddExpensestatusComponent } from './Features/Administration/ExpenseStatusManagement/add-expensestatus/add-expensestatus.component';
+import { EditExpensestatusComponent } from './Features/Administration/ExpenseStatusManagement/edit-expensestatus/edit-expensestatus.component';
 
 const routes: Routes = [{
   path:'admin/users/add',
@@ -75,6 +81,30 @@ const routes: Routes = [{
 {
   path:'admin/expensecategory/:id',
   component:EditExpensecategoryComponent
+},
+{
+  path:'admin/expensestatus',
+  component:ExpensestatusListComponent
+},
+{
+  path:'admin/expensestatus/add',
+  component:AddExpensestatusComponent
+},
+{
+  path:'admin/expensestatus/:id',
+  component:EditExpensestatusComponent
+},
+{
+  path:'expense/add',
+  component:AddExpenseComponent
+},
+{
+  path:'expense',
+  component:ListExpenseComponent
+},
+{
+  path:'expense/:id',
+  component:EditExpenseComponent
 }
 ];
 

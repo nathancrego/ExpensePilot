@@ -17,11 +17,11 @@
                         Expenses
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" [routerLink]="['/admin/cuisines']">Submit Expense</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['expense/add']">Submit Expense</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" [routerLink]="['/admin/recipes']">View Expenses</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['expense']">View Expenses</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -30,33 +30,20 @@
                         Approvals
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" [routerLink]="['/admin/cuisines']">Pending Approvals</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" [routerLink]="['/admin/recipes']">Approved Expenses</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" [routerLink]="['/admin/cuisines']">Rejected Expenses</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/admin/cuisines']">Approvals</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" [routerLink]="['/admin/recipes']">Delegation</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
-                        aria-expanded="false">
-                        Payments
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" [routerLink]="['report']">Reports
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" [routerLink]="['/admin/cuisines']">Pending Payments</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" [routerLink]="['/admin/recipes']">Processed Payments</a></li>
-                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" [routerLink]="['report']">Payments
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
@@ -64,7 +51,11 @@
                         Policies
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" [routerLink]="['/admin/cuisines']">Create/Update Policies</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/admin/cuisines']">Create Policies</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" [routerLink]="['/admin/recipes']">Edit Policies</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -96,7 +87,13 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" [routerLink]="['/admin/expensecategory']">Expense Category
-                                Management</a></li>
+                                Management</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" [routerLink]="['/admin/expensestatus']">Expense Status Mangament</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
