@@ -31,6 +31,13 @@ import { ListExpenseComponent } from './Features/Expense/list-expense/list-expen
 import { AddExpensestatusComponent } from './Features/Administration/ExpenseStatusManagement/add-expensestatus/add-expensestatus.component';
 import { EditExpensestatusComponent } from './Features/Administration/ExpenseStatusManagement/edit-expensestatus/edit-expensestatus.component';
 import { ExpensestatusListComponent } from './Features/Administration/ExpenseStatusManagement/expensestatus-list/expensestatus-list.component';
+import { AddPolicyComponent } from './Features/Policies/add-policy/add-policy.component';
+import { EditPolicyComponent } from './Features/Policies/edit-policy/edit-policy.component';
+import { PolicyListComponent } from './Features/Policies/policy-list/policy-list.component';
+import {MatAccordion, MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -58,12 +65,19 @@ import { ExpensestatusListComponent } from './Features/Administration/ExpenseSta
     ListExpenseComponent,
     AddExpensestatusComponent,
     EditExpensestatusComponent,
-    ExpensestatusListComponent
+    ExpensestatusListComponent,
+    AddPolicyComponent,
+    EditPolicyComponent,
+    PolicyListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule    
+    FormsModule,
+    MatExpansionModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule   
   ],
   providers: [
     provideClientHydration(),

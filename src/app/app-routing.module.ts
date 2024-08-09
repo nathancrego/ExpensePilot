@@ -21,6 +21,9 @@ import { EditExpenseComponent } from './Features/Expense/edit-expense/edit-expen
 import { ExpensestatusListComponent } from './Features/Administration/ExpenseStatusManagement/expensestatus-list/expensestatus-list.component';
 import { AddExpensestatusComponent } from './Features/Administration/ExpenseStatusManagement/add-expensestatus/add-expensestatus.component';
 import { EditExpensestatusComponent } from './Features/Administration/ExpenseStatusManagement/edit-expensestatus/edit-expensestatus.component';
+import { PolicyListComponent } from './Features/Policies/policy-list/policy-list.component';
+import { AddPolicyComponent } from './Features/Policies/add-policy/add-policy.component';
+import { EditPolicyComponent } from './Features/Policies/edit-policy/edit-policy.component';
 
 const routes: Routes = [{
   path:'admin/users/add',
@@ -93,6 +96,18 @@ const routes: Routes = [{
 {
   path:'admin/expensestatus/:id',
   component:EditExpensestatusComponent
+},
+{
+  path:'policy',
+  component:PolicyListComponent
+},
+{
+  path:'policy/add',
+  component:AddPolicyComponent
+},
+{
+  path:'policy/:id',
+  component:EditPolicyComponent
 },
 {
   path:'expense/add',
